@@ -72,4 +72,9 @@
       </form>
     </div>
   </div>
+  <div class="w-100"></div>
+  <div class="row">
+    <h2>Dynamic Questionnaire</h2>
+    <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+  </div>
 </div>

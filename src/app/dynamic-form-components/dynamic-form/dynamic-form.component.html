@@ -1,0 +1,26 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let question of questions; let i = index" class="form-row">
+      <app-dynamic-question
+        [question]="question"
+        [form]="form"
+        [hidden]="
+          i !== 0 &&
+          questions[i - 1].expectedAnswer &&
+          form.get(questions[i - 1].key).value !==
+            questions[i - 1].expectedAnswer
+        "
+      ></app-dynamic-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+        Save
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br />{{ payLoad }}
+  </div>
+</div>

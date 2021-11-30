@@ -6,7 +6,6 @@ export class QuestionStructure<T> {
   order: number;
   controlType: string;
   type: string;
-  nextOrder: number;
   expectedAnswer: string;
   elseText: string;
   options: { key: string; value: string }[];
@@ -20,7 +19,6 @@ export class QuestionStructure<T> {
       order?: number;
       controlType?: string;
       type?: string;
-      nextOrder?: number;
       expectedAnswer?: string;
       elseText?: string;
       options?: { key: string; value: string }[];
@@ -33,8 +31,6 @@ export class QuestionStructure<T> {
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || "";
     this.type = options.type || "";
-    this.nextOrder =
-      options.nextOrder === undefined ? this.order + 1 : options.nextOrder;
     this.expectedAnswer = options.expectedAnswer;
     this.elseText = options.elseText;
     this.options = options.options || [];

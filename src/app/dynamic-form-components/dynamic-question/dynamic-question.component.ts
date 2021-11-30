@@ -10,6 +10,7 @@ import { QuestionStructure } from "../question-structure";
 export class DynamicQuestionComponent {
   @Input() question!: QuestionStructure<string>;
   @Input() form!: FormGroup;
+  @Input()
   get isValid() {
     return this.form.controls[this.question.key].valid;
   }

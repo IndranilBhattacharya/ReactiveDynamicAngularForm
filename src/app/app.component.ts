@@ -7,6 +7,8 @@ import {
   Validators,
 } from "@angular/forms";
 import { Observable } from "rxjs";
+import { QuestionStructure } from "./dynamic-form-components/question-structure";
+import { QuestionProviderService } from "./dynamic-form-components/services/question-provider.service";
 
 @Component({
   selector: "app-root",
@@ -88,5 +90,13 @@ export class AppComponent implements OnInit {
         }
       }, 2000);
     });
+  }
+
+  //------ Dynamic -----------//
+
+  questions$: Observable<QuestionStructure<any>[]>;
+
+  constructor(service: QuestionProviderService) {
+    this.questions$ = service.getQuestions();
   }
 }
