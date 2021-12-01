@@ -11,6 +11,17 @@
             questions[i - 1].expectedAnswer
         "
       ></app-dynamic-question>
+      <div
+        [hidden]="
+          i === 0 ||
+          !questions[i - 1].expectedAnswer ||
+          !form.get(questions[i - 1].key).value ||
+          form.get(questions[i - 1].key).value ===
+            questions[i - 1].expectedAnswer
+        "
+      >
+        {{ questions[i - 1]?.elseText }}
+      </div>
     </div>
 
     <div class="form-row">
